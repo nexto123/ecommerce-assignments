@@ -9,9 +9,9 @@
 {% endblock %}
 {% block title %}
 	{% if category %}
-		{{ category.name }} - Perfect Cushion Store
+		{{ category.name }}
 	{% else %}
-		Check out are broken car collection.
+		Check out are broken cars collection.
 	{% endif %}
 {% endblock %}
 {% block content %}
@@ -25,12 +25,10 @@
 	{% endif %}
 	<div class="mx-auto">
 	{% if category %}
-		<img class="my_image" src="{{category.image.url}}" alt="{{category.name}}">
 	</div>
 	<br>
 	<div>
 		<h1 class="text-center my_title">{{category.name}}</h1>
-		<p class="text-justify">{{category.description}}</p>
 	</div>
 	{% else %}
 	<br>
