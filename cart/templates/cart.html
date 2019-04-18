@@ -52,12 +52,12 @@
 									<br>
 									SKU: {{cart_item.product.id}}
 									<br>
-									Unit Price: £{{cart_item.product.price}}
+									Unit Price: €{{cart_item.product.price}}
 									<br>
 									Qty: {{cart_item.quantity}} x £{{cart_item.product.price}}
 								</td>
 								<td>
-									Euro{{cart_item.sub_total}}
+									€{{cart_item.sub_total}}
 								</td>
 								{% if cart_item.quantity < cart_item.product.stock %}
 									<td>
@@ -92,14 +92,28 @@
 						</tr>
 						<tr>
 							<td class="text-left">
-								Your total is: <strong>Euro:{{ total }}</strong>
+								Your total is: <strong>€:{{ total }}</strong>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 				<div class="mx-auto">
 					<form action="" method="POST">
-					<!----stripe goes here--->
+					<!----stripe % payment system goes here--->
+						{% csrf_token %}
+					  <script
+					    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					    data-key="{{ data_key }}"
+					    data-amount="{{ stripe_total }}"
+					    data-name="Perfect Cushion Shop"
+					    data-description="{{ description }}"
+					    data-image="{% static 'img/logo.png' %}"
+					    data-locale="auto"
+					    data-currency="gbp"
+					    data-shipping-address="true"
+					    data-billing-address="true"
+					    data-zip-code="true">
+					  </script>
 					</form>
 					<a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue Shopping</a>
 				</div>
