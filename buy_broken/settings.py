@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'cart',
+    'search_app',
+    'stripe',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,8 @@ ROOT_URLCONF = 'buy_broken.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'shop','templates/'),
+        'DIRS': [os.path.join(BASE_DIR,'cart','templates/'),
+                os.path.join(BASE_DIR,'search_app','templates/'),
                 os.path.join(BASE_DIR,'shop','templates/'),],
         'APP_DIRS': True,
         'OPTIONS': {
