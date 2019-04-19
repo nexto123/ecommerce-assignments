@@ -4,7 +4,7 @@
 	This is the shopping cart page. Proceed to review your items and place the order.
 {% endblock %}
 {% block title %}
-	Cart - Perfect Cushion Store
+	Cart - BUY BROKEN STORE
 {% endblock %}
 {% block content %}
 	{% if not cart_items %}
@@ -99,17 +99,16 @@
 				</table>
 				<div class="mx-auto">
 					<form action="" method="POST">
-					<!----stripe % payment system goes here--->
 						{% csrf_token %}
 					  <script
 					    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 					    data-key="{{ data_key }}"
 					    data-amount="{{ stripe_total }}"
-					    data-name="Perfect Cushion Shop"
-					    data-description="{{ description }}"
+					    data-name="Buy Broken"
+					    data-description="{{description}}"
 					    data-image="{% static 'img/logo.png' %}"
 					    data-locale="auto"
-					    data-currency="gbp"
+					    data-currency="eur"
 					    data-shipping-address="true"
 					    data-billing-address="true"
 					    data-zip-code="true">
