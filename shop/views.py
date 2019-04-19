@@ -2,6 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Category, Product
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.contrib.auth.models import Group, User
+from .forms import SignUpForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 
 #Category view 
 def allProdCat(request, c_slug=None):
@@ -31,4 +35,17 @@ def ProdCatDetail(request,c_slug,product_slug):
 	except Exception as e:
 		raise e
 	return render(request,'shop/product.html', {'product':product})
+        
+def signupView(request):
+	if request.method == 'POST':
+		form = SignUpForm(request.POST)
+		if form.is_valid():
+			form.save()
+			username = form.cleaned_data.get('username')
+			signup_user = User.objects.get(username=username)
+			customer_group = Group.objects.get(name='Customer')
+			customer_group.user_set.add(signup_user)
+	else:
+		form = SignUpForm()
+	return render(request, 'accounts/signup.html', {'form':form})
         

@@ -111,7 +111,7 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
 					print('The order has been created')
 				try:
 					'''Calling the sendEmail function'''
-					sendEmail(order_details.id)
+					# call send mail function from here 
 					print('The order email has been sent to the customer.')
 				except IOError as e:
 					return e
