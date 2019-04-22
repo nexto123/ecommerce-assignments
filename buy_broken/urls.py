@@ -25,6 +25,9 @@ urlpatterns = [
     path('order/', include('order.urls')),
     path('search_app/', include('search_app.urls')),
     path('account/create/', views.signupView, name='signup'),
+    path('account/login/', views.signinView, name='signin'),
+    path('account/logout/', views.signoutView, name='signout'),
+    path('accounts/', include('accounts.passwords.urls')),
     path('admin/', admin.site.urls),
 ]
 
