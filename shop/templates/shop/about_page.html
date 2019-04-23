@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+	{{ product.description|truncatewords:155 }}
+{% endblock %}
+
+{% block title %}
+ About Page
+{% endblock %}
+
+{% block content %}
+<div  class="container">
+	<div class="row">
+	   <div class="col"><br>
+	    <h1 class="my_title text-center">About Us</h1>
+	    </div>
+	 </div>   
+	 <div class="row">
+	    <div class="col"><br>
+		<p class="text-center about-text">Buy broken was founded in 2019 by ernest, a student at the
+		Code Institute. This a one stop site for all decent waste. 
+		Did you crash your car and don't need it? Just put it up and sell it here. Buy Broken offers a free service</p>
+	   </div>
+	</div>
+</div>	
+{% endblock %}
