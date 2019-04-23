@@ -7,6 +7,14 @@ body {
 	font-size: 14px;
 	text-transform: uppercase;
 }
+.about{
+	color: black;
+}
+.about-text{
+	color: #000;
+	margin: auto;
+	max-width: 500px;
+}
 .dropdown-item {
 	font-size: 14px;
 	letter-spacing: .2em;
@@ -18,6 +26,7 @@ body {
 	height: 60px;
 }
 .my_footer p {
+	margin-top: 20px;
 	padding-top: 20px;
 	font-size: 14px;
 }
@@ -115,7 +124,7 @@ body {
 	background-image: none !important;
 }
 .stripe-button-el span {
-	display: : block;
+	display: block;
 	position: relative;
 	padding: 0px 12px;
 	height: 36px !important;
