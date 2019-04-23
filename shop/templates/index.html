@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block metadescription %}
+	{{ product.description|truncatewords:155 }}
+{% endblock %}
+
+{% block title %}
+ Redirect Page
+{% endblock %}
+
+{% block content %}
+<div  class="container">
+	<div class="row">
+	   <div class="col"><br>
+	    <h1 class="my_title text-center">Redirect Page </h1>
+	    </div>
+	 </div>   
+	 <div class="row">
+	    <div class="col"><br>
+		<p class="text-center about-text"><strong>Disclaimer:</strong> We will urge all using this website to pay attention to 
+		product description as we don't have refund policy's.
+		If you buy a product and it isn't as advertised please return the item. 
+		To have access to your transaction history you must register first. And remeber you trade here at your own risk, So be vigilant.</p><br><br>
+		<a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block about-text">Continue to Home</a>
+	   </div>
+	</div>
+</div>	
+{% endblock %}
