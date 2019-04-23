@@ -6,6 +6,9 @@ import stripe
 from django.conf import settings
 from django.conf import settings
 from order.models import Order, OrderItem
+from django.template.loader import get_template
+from django.core.mail import EmailMessage
+
 
 
 def _cart_id(request):
@@ -112,6 +115,7 @@ def cart_detail(request, total=0, counter=0, cart_items = None):
 				try:
 					'''Calling the sendEmail function'''
 					# call send mail function from here 
+					sendEmail(order_details.id)
 					print('The order email has been sent to the customer.')
 				except IOError as e:
 					return e
@@ -140,4 +144,22 @@ def full_remove(request, product_id):
 	cart_item = CartItem.objects.get(product=product, cart=cart)
 	cart_item.delete()
 	return redirect('cart:cart_detail')
+def sendEmail(order_id):
+	transaction = Order.objects.get(id=order_id)
+	order_items = OrderItem.objects.filter(order=transaction)
+	try:
+		'''Sending the order'''
+		subject = "Buy Broken - New Order #{}".format(transaction.id)
+		to = ['{}'.format(transaction.emailAddress)]
+		from_email = "orders@buybrokenlimited.com"
+		order_information = {
+		'transaction' : transaction,
+		'order_items' :	order_items
+		}
+		message = get_template('email/email.html').render(order_information)
+		msg = EmailMessage(subject, message, to=to, from_email=from_email)
+		msg.content_subtype = 'html'
+		msg.send()
+	except IOError as e:
+		return e
 
