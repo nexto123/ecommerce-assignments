@@ -16,9 +16,6 @@ import dj_database_url
 if os.path.exists('env.py'):
     import env
     
-import django
-django.setup()
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,8 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io', '.herokuapp.com']
 
@@ -94,8 +92,8 @@ WSGI_APPLICATION = 'buy_broken.wsgi.application'
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
-        'ENGINE':'ENGINE': 'django.db.backends.postgresql_psycopg2'
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        
     }
 else:
     print("Postgres URL not found, using sqlite instead")
