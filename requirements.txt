@@ -6,7 +6,8 @@ django-crispy-forms==1.7.2
 gunicorn==19.9.0
 idna==2.8
 Pillow==5.4.1
-psycopg2==2.8.2
+psycopg2==2.7.4
+psycopg2-binary==2.8.2
 pytz==2019.1
 requests==2.21.0
 stripe==2.25.0
