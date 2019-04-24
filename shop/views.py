@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Category, Product
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -28,7 +28,7 @@ def allProdCat(request, c_slug=None):
 		products = paginator.page(paginator.num_pages)
 	return render(request,'shop/category.html',{'category':c_page,'products':products})    
 
-
+#Product views
 def ProdCatDetail(request,c_slug,product_slug):
 	try:
 		product = Product.objects.get(category__slug=c_slug,slug=product_slug)
@@ -48,4 +48,32 @@ def signupView(request):
 	else:
 		form = SignUpForm()
 	return render(request, 'accounts/signup.html', {'form':form})
-        
+
+def signinView(request):
+	if request.method == 'POST':
+		form = AuthenticationForm(data=request.POST)
+		if form.is_valid():
+			username = request.POST['username']
+			password = request.POST['password']
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				return redirect('shop:allProdCat')
+			else:
+				return redirect('signup')
+	else:
+		form = AuthenticationForm()
+	return render(request,'accounts/signin.html', {'form':form })
+	
+#sign out
+def signoutView(request):
+	logout(request)
+	return redirect('signin')  
+	
+#about age views	
+def about(request):
+	return render(request, 'shop/about_page.html')
+	
+#about age views	
+def index(request):
+	return render(request, 'index.html')	
