@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'stripe',
     'order',
     'crispy_forms',
-    'clear_cache'
 ]
 
 MIDDLEWARE = [
