@@ -1,1 +1,1 @@
-web: gunicorn buy_broken.wsgi
+web: gunicorn blog.wsgi:application
