@@ -15,7 +15,9 @@ import dj_database_url
 
 if os.path.exists('env.py'):
     import env
-
+    
+import django
+django.setup()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,9 +30,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io', 'buybroken.herokuapp.com']
+ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io', '.herokuapp.com']
 
 
 # Application definition
@@ -158,19 +160,3 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "postmaster@sandbox3b7b6fa3dc2b493182d2e30d5fa7e82b.mailgun.org"
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
-# AWS_STORAGE_BUCKET_NAME = 'myblogproject'
-# AWS_S3_REGION_NAME = 'eu-west-1'
-
-# AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-# AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-
-# AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
-
-# STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-# print(STATICFILES_STORAGE)
-
-# AWS_S3_OBJECT_PARAMETERS = {
-#     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-#     'CacheControl': 'max-age=94608000',
-# }
