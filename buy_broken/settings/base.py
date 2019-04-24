@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'stripe',
     'order',
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,5 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "postmaster@sandbox3b7b6fa3dc2b493182d2e30d5fa7e82b.mailgun.org"
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+from buy_broken.aws.conf import *
