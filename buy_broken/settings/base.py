@@ -16,6 +16,8 @@ import datetime
 if os.path.exists('env.py'):
     import env
     
+  
+    
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io', 'buybroken.herokuapp.com']
 
@@ -66,8 +68,7 @@ ROOT_URLCONF = 'buy_broken.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates/'),],
-        
+        'DIRS': [os.path.join(BASE_DIR,'shop','templates/'), os.path.join(BASE_DIR,'search_app','templates/'), os.path.join(BASE_DIR, 'cart', 'templates/'), os.path.join(BASE_DIR,'order','templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,8 +142,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
- 
-     
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR,'static'),
+#     )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
 
@@ -165,6 +167,9 @@ AWS_SECRET_ACCESS_KEY = 'fcsbBKqUnuf3JRCAUzXEOTFeXZgab5B7ioAMMNMf'
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = True
+
+StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
+MediaRootS3BotoStorage  = lambda: S3Boto3Storage(location='media')
 
 DEFAULT_FILE_STORAGE = 'buy_broken.aws.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'buy_broken.aws.utils.StaticRootS3BotoStorage'
@@ -191,4 +196,5 @@ AWS_HEADERS = {
 }
 
 AWS_QUERYSTRING_AUTH = False
+
 
