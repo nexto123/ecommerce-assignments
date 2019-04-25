@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import datetime
 if os.path.exists('env.py'):
     import env
     
@@ -31,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io', 'buybroken.herokuapp.com']
+ALLOWED_HOSTS = ['ecommerce-assignment-nexto123.c9users.io']
 
 
 # Application definition
