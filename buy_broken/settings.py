@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import dj_database_url
+
 if os.path.exists('env.py'):
     import env
-    
+import dj_database_url 
+
+import datetime
   
     
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'stripe',
     'order',
     'crispy_forms',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +91,7 @@ WSGI_APPLICATION = 'buy_broken.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 if "DATABASE_URL" in os.environ:
+    
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
@@ -137,11 +141,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
-    )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
 
@@ -155,4 +161,6 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "postmaster@sandbox3b7b6fa3dc2b493182d2e30d5fa7e82b.mailgun.org"
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+from buy_broken.aws.conf import *
 
