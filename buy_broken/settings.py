@@ -88,13 +88,7 @@ WSGI_APPLICATION = 'buy_broken.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-if "DATABASE_URL" in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    print("Postgres URL not found, using sqlite instead")
-    DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -156,43 +150,4 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "postmaster@sandbox3b7b6fa3dc2b493182d2e30d5fa7e82b.mailgun.org"
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-
-
-# AWS_USERNAME = 'nexto-user'
-# AWS_GROUP_NAME = 'buy_broken_group'
-# AWS_ACCESS_KEY_ID = 'AKIA5TX2BNIQJQP5EIW3'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_FILE_EXPIRE = 200
-# AWS_PRELOAD_METADATA = True
-# AWS_QUERYSTRING_AUTH = True
-
-# StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
-# MediaRootS3BotoStorage  = lambda: S3Boto3Storage(location='media')
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# AWS_STORAGE_BUCKET_NAME = 'buy-broken'
-# S3DIRECT_REGION = 'eu-west-1'
-# S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-# MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-# MEDIA_ROOT = MEDIA_URL
-# STATIC_URL = S3_URL + '/static/'
-# ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-
-# AWS_S3_OBJECT_PARAMETERS = {
-#     'CacheControl': 'max-age=86400',
-# }
-
-# two_months = datetime.timedelta(days=61)
-# date_two_months_later = datetime.date.today() + two_months
-# expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
-
-# AWS_HEADERS = { 
-#     'Expires': expires,
-#     'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()), ),
-# }
-
-# AWS_QUERYSTRING_AUTH = False
-
 
