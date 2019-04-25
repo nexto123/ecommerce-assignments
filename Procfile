@@ -1,1 +1,1 @@
-web: gunicorn dj-project.wsgi
+web: gunicorn buy_broken.wsgi
