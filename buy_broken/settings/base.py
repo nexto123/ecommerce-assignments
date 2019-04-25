@@ -139,12 +139,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
  
      
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'static','media')
 
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
@@ -160,8 +160,8 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 AWS_USERNAME = 'nexto-user'
 AWS_GROUP_NAME = 'buy_broken_group'
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_ACCESS_KEY_ID = 'AKIA5TX2BNIQJQP5EIW3'
+AWS_SECRET_ACCESS_KEY = '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'
 AWS_FILE_EXPIRE = 200
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = True
@@ -176,15 +176,19 @@ MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + '/static/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-
-two_months = datetime.timedelta(days=61)
-date_two_months_later = datetime.date.today() + two_months
-expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
-
-AWS_HEADERS = { 
-    'Expires': expires,
-    'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()), ),
+AWS_DEFAULT_ACL = None
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
 }
+
+# two_months = datetime.timedelta(days=61)
+# date_two_months_later = datetime.date.today() + two_months
+# expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
+
+# AWS_HEADERS = { 
+#     'Expires': expires,
+#     'Cache-Control': 'max-age=%d' % (int(two_months.total_seconds()), ),
+# }
 
 AWS_QUERYSTRING_AUTH = False
 
