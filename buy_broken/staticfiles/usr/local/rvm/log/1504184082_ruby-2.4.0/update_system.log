@@ -1,0 +1,83 @@
+[2017-08-31 12:54:42] requirements_debian_update_system
+requirements_debian_update_system () 
+{ 
+    __rvm_try_sudo apt-get --quiet --yes update || { 
+        \typeset __ret=$?;
+        case ${__ret} in 
+            100)
+                rvm_error "There has been error while updating 'apt-get', please give it some time and try again later.
+404 errors should be fixed for rvm to proceed. Check your sources configured in:
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+"
+            ;;
+        esac;
+        return ${__ret}
+    }
+}
+current path: /home/ubuntu
+PATH=/home/ubuntu/.nvm/versions/node/v6.11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/local/rvm/bin
+command(2): requirements_debian_update_system ruby-2.4.0
+++ __rvm_try_sudo apt-get --quiet --yes update
+++ typeset -a command_to_run
+++ typeset sudo_path sbin_path missing_paths
+++ command_to_run=("$@")
+++ ((  UID == 0  ))
+++ case "$rvm_autolibs_flag_number" in
+++ is_a_function __rvm_sudo
+++ typeset -f __rvm_sudo
+++ missing_paths=
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /sbin ]]
+++ [[ :/home/ubuntu/.nvm/versions/node/v6.11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/local/rvm/bin: != *\:\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/sbin ]]
+++ [[ :/home/ubuntu/.nvm/versions/node/v6.11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/local/rvm/bin: != *\:\/\u\s\r\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/local/sbin ]]
+++ [[ :/home/ubuntu/.nvm/versions/node/v6.11.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/usr/local/rvm/bin: != *\:\/\u\s\r\/\l\o\c\a\l\/\s\b\i\n\:* ]]
+++ [[ -n '' ]]
+++ command_to_run=(__rvm_sudo -p "%p password required for '$*': " "${command_to_run[@]}")
+++ __rvm_sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+++ command sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+++ sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+Ign http://archive.ubuntu.com trusty InRelease
+Get:1 http://archive.ubuntu.com trusty-updates InRelease [65.9 kB]
+Get:2 http://archive.ubuntu.com trusty-security InRelease [65.9 kB]
+Get:3 http://ppa.launchpad.net trusty InRelease [15.5 kB]
+Hit http://ppa.launchpad.net trusty InRelease
+Hit http://archive.ubuntu.com trusty Release.gpg
+Hit http://archive.ubuntu.com trusty Release
+Get:4 http://archive.ubuntu.com trusty-updates/main Sources [499 kB]
+Get:5 http://archive.ubuntu.com trusty-updates/restricted Sources [6470 B]
+Get:6 http://archive.ubuntu.com trusty-updates/universe Sources [239 kB]
+Get:7 http://archive.ubuntu.com trusty-updates/main amd64 Packages [1268 kB]
+Get:8 http://archive.ubuntu.com trusty-updates/restricted amd64 Packages [21.2 kB]
+Get:9 http://archive.ubuntu.com trusty-updates/universe amd64 Packages [549 kB]
+Get:10 http://archive.ubuntu.com trusty-updates/main i386 Packages [1204 kB]
+Get:11 http://ppa.launchpad.net trusty/main amd64 Packages [23.2 kB]
+Get:12 http://archive.ubuntu.com trusty-updates/restricted i386 Packages [20.9 kB]
+Get:13 http://archive.ubuntu.com trusty-updates/universe i386 Packages [550 kB]
+Get:14 http://archive.ubuntu.com trusty-security/main Sources [179 kB]
+Get:15 http://archive.ubuntu.com trusty-security/restricted Sources [5068 B]
+Get:16 http://archive.ubuntu.com trusty-security/universe Sources [75.2 kB]
+Get:17 http://ppa.launchpad.net trusty/main i386 Packages [23.2 kB]
+Get:18 http://archive.ubuntu.com trusty-security/main amd64 Packages [819 kB]
+Get:19 http://archive.ubuntu.com trusty-security/restricted amd64 Packages [17.9 kB]
+Get:20 http://archive.ubuntu.com trusty-security/universe amd64 Packages [235 kB]
+Hit http://ppa.launchpad.net trusty/main amd64 Packages
+Get:21 http://archive.ubuntu.com trusty-security/main i386 Packages [758 kB]
+Get:22 http://archive.ubuntu.com trusty-security/restricted i386 Packages [17.6 kB]
+Get:23 http://archive.ubuntu.com trusty-security/universe i386 Packages [236 kB]
+Hit http://ppa.launchpad.net trusty/main i386 Packages
+Hit http://archive.ubuntu.com trusty/main Sources
+Hit http://archive.ubuntu.com trusty/restricted Sources
+Hit http://archive.ubuntu.com trusty/universe Sources
+Hit http://archive.ubuntu.com trusty/main amd64 Packages
+Hit http://archive.ubuntu.com trusty/restricted amd64 Packages
+Hit http://archive.ubuntu.com trusty/universe amd64 Packages
+Hit http://archive.ubuntu.com trusty/main i386 Packages
+Hit http://archive.ubuntu.com trusty/restricted i386 Packages
+Hit http://archive.ubuntu.com trusty/universe i386 Packages
+Fetched 6893 kB in 4s (1447 kB/s)
+Reading package lists...

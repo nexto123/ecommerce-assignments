@@ -1,0 +1,2 @@
+# User settings, overrides db settings and persists across installs.
+autolibs=enabled
