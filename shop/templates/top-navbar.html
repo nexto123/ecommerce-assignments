@@ -1,6 +1,10 @@
 <div class="container">
 	<div class="my_custom_menu">
+		
 		<ul>
+			<li class="nav-item float-left">
+				<a class="navbar-brand" href="{% url 'shop:allProdCat' %}"><strong>Broken Bucket</strong></a>
+			</li>
 			{% if request.user.is_authenticated and request.user.first_name %}
 			<li>
 				Welcome, <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.first_name }} <i class="fas fa-user-circle"></i></a>
