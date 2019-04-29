@@ -8,7 +8,7 @@ body {
 	text-transform: uppercase;
 }
 .about{
-	color: black;
+	color: #696969;
 }
 .about-text{
 	color: #000;
@@ -114,6 +114,9 @@ body {
 }
 .my_custom_button {
 	margin-top: 5px;
+}
+.logo{
+	margin: auto 0;
 }
 /***Stripe Button***/
 .stripe-button-el {

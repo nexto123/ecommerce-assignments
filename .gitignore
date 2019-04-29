@@ -3,4 +3,8 @@
 .~c9
 __pycache__
 env.py
-aws
+*.aws
+*.log
+*.pot
+*./media
+*./static
