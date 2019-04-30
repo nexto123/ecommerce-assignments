@@ -74,6 +74,20 @@ To use Travis CI;
 * After connecting to GitHub check your readme file if you are passing.
 * Voila!
 
+The app has been tested on these mobile devices; iPad, iPhone 6 and 7,iPhoneX and they respond very well. The font selected 'Roboto' renders perfectly on most browsers, including Mozilla, safari and chrome, as am yet to test them on IE.9 and above.
+
+
+|    Tested      |    Chrome     | Mozilla    |   Safari  |    
+| -------------  |:-------------:|  ---------:|:---------:|
+| Animation      |    Yes        |     Yes    |   Fast    |
+| Images         |    Yes        |     Yes    |   Fast    |
+| SVG            |    Yes        |     Yes    |   Fast    |
+| Font awesome   |    Yes        |     Yes    |   Fast    |
+| Text-Rendering |    Yes        |     Yes    |   Fast    |
+| Responsiveness |   excellent   |     Yes    |   Fast    |
+| Functions      |   excellent   |     Yes    |   Fast    |
+
+
 
 ## Deployment
 
@@ -140,7 +154,7 @@ These are feature left to be implemented.
 1. Home page -> product view page
 2. Account Page -> create an account and log in
 3. Click on product -> View product Detail & add to cart
-3. Order Page -> Delete, Edit, Add product in Cart.
+3. Order Page -> Finalize your order.
 4. Check out product -> Pay with card
 5. Cart Page -> See items inside the cart, Delete items inside the cart, decrease/increase items inside the cart.
 
