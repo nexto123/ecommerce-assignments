@@ -8,7 +8,7 @@ AWS_QUERYSTRING_AUTH = True
 
 DEFAULT_FILE_STORAGE = 'buy_broken.aws.utils.MediaRootS3BotoStorage'
 STATICFILES_STORAGE = 'buy_broken.aws.utils.StaticRootS3BotoStorage'
-AWS_STORAGE_BUCKET_NAME = 'buy-broken-bucket'
+AWS_STORAGE_BUCKET_NAME = 'buy-broken-new'
 S3DIRECT_REGION = 'eu-west-1'
 S3_URL = '//%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = '//%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME

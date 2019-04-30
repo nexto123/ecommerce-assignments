@@ -47,7 +47,7 @@ def signupView(request):
 			customer_group.user_set.add(signup_user)
 	else:
 		form = SignUpForm()
-	return render(request, 'accounts/signup.html', {'form':form})
+	return render(request, 'account/signup.html', {'form':form})
 
 def signinView(request):
 	if request.method == 'POST':
@@ -63,7 +63,7 @@ def signinView(request):
 				return redirect('signup')
 	else:
 		form = AuthenticationForm()
-	return render(request,'accounts/signin.html', {'form':form })
+	return render(request,'account/signin.html', {'form':form })
 	
 #sign out
 def signoutView(request):
